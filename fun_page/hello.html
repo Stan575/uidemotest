@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello page</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="my_page.js"></script>
+    </head>
+    <body>
+        <header class="box">
+                <h2>Hi there!</h2>
+        </header>
+
+        <div class="box">
+            <h3>Welcome to my page!</h3>
+        </div>
+        <br>
+        <div class="box">
+            <a href="https://github.com/Stan575">My GitHub</a>
+        </div>
+        <br>
+        <div class="slim-div box">
+            <p id="p1" onclick="alert('Alert on example page')">This is a simple page expamle</p>
+        </div>
+        <br>
+        <div class="box" id="personality">
+            <button id="btn-show" onclick="addImage()">Show my personality type</button>
+        </div>
+        <br>
+        <div class="slim-div box">
+            <input name="login" type="text" placeholder="Login">
+            <input name="password" type="password" placeholder="Password">
+            <input type="submit" onclick="printToConsole()">
+        </div>
+        <br>
+        <div class="slim-div box" id="color">
+            Favorite color?
+            <input name="color" type="radio" onclick="changeColor('#ff3632')" value="red">Red</input>
+            <input name="color" type="radio" onclick="changeColor('#73c766')" value="green">Green</input>
+            <input name="color" type="radio" onclick="changeColor('#2464e3')" value="blue">Blue</input>
+            <input name="color" type="radio" onclick="changeColor('#bebebe')" value="other">Other</input>
+        </div>
+        <br>
+        <div class="box" id="dropdown">
+                <form>
+                    <select type="text" name="lang" list="langs" placeholder="Language">
+                        <option value="">--Please choose an option--</option>
+                        <option value="1">Python</option>
+                        <option value="2">JavaScript</option>
+                        <option value="3">Java</option>
+                        <option value="4">SQL</option>
+                    </select>
+                </form>
+                <button id="btn-go" onclick="openSelection()">Go</button>
+        </div>
+    </body>
+</html>
