@@ -7,15 +7,16 @@ from webdriver_manager.chrome import ChromeDriverManager
 @pytest.fixture(scope="class", autouse=True)
 def init_driver(request):
     driver = None
-    supported_browsers = ['chrome', 'ch', 'headlesschrome', 'firefox', 'ff']
+    supported_browsers = ['chrome', 'ch', 'headlesschrome', 'firefox', 'ff', "headlessfirefox"]
 
-    browser = 'chrome'
+    browser = 'ch'
     browser = browser.lower()
 
     if browser not in supported_browsers:
-        raise RuntimeError(f'Provided browser "{browser}" is not supported.')
+        raise RuntimeError(f'Provided browser "{browser}" is not supported.\n'
+                           f'\t\tSupported browsers are: {str(supported_browsers)[1:-1]}.')
 
-    if browser in ('chrome', 'ch'):
+    if 'ch' in browser:
         options = webdriver.ChromeOptions()
         options.add_argument('--window-size=1600,1080')
         if 'headless' in browser:
