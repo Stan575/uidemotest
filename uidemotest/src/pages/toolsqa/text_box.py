@@ -28,14 +28,7 @@ class TextBoxPage(TextBoxPageLocator):
         self.su.wait_and_input_text(self.PERMANENT_ADDRESS, text)
         return self
 
-    def click_submit_button(self):
-        self.su.wait_and_click(self.SUBMIT_BUTTON)
-        return self
-
-    def get_processed_data(self):
-        return self.su.get_text(self.SUBMITTED_DATA)
-
-    def clear_name_input(self):
+    def clear_full_name_input(self):
         self.su.get_element(self.FULL_NAME_INPUT).clear()
         return self
 
@@ -50,3 +43,23 @@ class TextBoxPage(TextBoxPageLocator):
     def clear_permanent_address_input(self):
         self.su.get_element(self.PERMANENT_ADDRESS).clear()
         return self
+
+    def get_full_name_input_text(self):
+        return self.su.get_text(self.FULL_NAME_INPUT)
+
+    def get_email_input_text(self):
+        return self.su.get_text(self.EMAIL_INPUT)
+
+    def get_current_address_input_text(self):
+        return self.su.get_text(self.CURRENT_ADDRESS)
+
+    def get_permanent_address_input_text(self):
+        return self.su.get_text(self.PERMANENT_ADDRESS)
+
+    def click_submit_button(self):
+        self.su.wait_and_click(self.SUBMIT_BUTTON)
+        return self
+
+    def get_processed_data(self):
+        return self.su.get_text(self.SUBMITTED_DATA)
+
