@@ -34,3 +34,19 @@ class TextBoxPage(TextBoxPageLocator):
 
     def get_processed_data(self):
         return self.su.get_text(self.SUBMITTED_DATA)
+
+    def clear_name_input(self):
+        self.su.get_element(self.FULL_NAME_INPUT).clear()
+        return self
+
+    def clear_email_input(self):
+        self.su.get_element(self.EMAIL_INPUT).clear()
+        return self
+
+    def clear_current_address_input(self):
+        self.su.get_element(self.CURRENT_ADDRESS).clear()
+        return self
+
+    def clear_permanent_address_input(self):
+        self.su.get_element(self.PERMANENT_ADDRESS).clear()
+        return self
