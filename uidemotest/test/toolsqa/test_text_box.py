@@ -69,17 +69,16 @@ class TestTextBox:
 
     @pytest.mark.toolsqa
     def test_clear_form(self):
-
         assert TextBoxPage(self.driver) \
-            .open() \
-            .fill_out_full_name(FULL_NAME) \
-            .fill_out_email(EMAIL) \
-            .fill_out_current_address(CURRENT_ADDRESS) \
-            .fill_out_permanent_address(PERMANENT_ADDRESS) \
-            .click_submit_button() \
-            .clear_name_input() \
-            .clear_email_input() \
-            .clear_current_address_input() \
-            .clear_permanent_address_input() \
-            .click_submit_button() \
-            .get_processed_data() is None
+                   .open() \
+                   .fill_out_full_name(FULL_NAME) \
+                   .fill_out_email(EMAIL) \
+                   .fill_out_current_address(CURRENT_ADDRESS) \
+                   .fill_out_permanent_address(PERMANENT_ADDRESS) \
+                   .click_submit_button() \
+                   .clear_name_input() \
+                   .clear_email_input() \
+                   .clear_current_address_input() \
+                   .clear_permanent_address_input() \
+                   .click_submit_button() \
+                   .get_processed_data() is None
