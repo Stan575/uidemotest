@@ -1,4 +1,5 @@
 import pytest
+from selenium.webdriver.common.keys import Keys
 from uidemotest.src.pages.toolsqa.text_box import TextBoxPage
 from faker import Faker
 
@@ -68,17 +69,36 @@ class TestTextBox:
                    .get_processed_data() == expected_data
 
     @pytest.mark.toolsqa
-    def test_clear_form(self):
+    def test_submit_empty_form(self):
         assert TextBoxPage(self.driver) \
                    .open() \
-                   .fill_out_full_name(FULL_NAME) \
-                   .fill_out_email(EMAIL) \
-                   .fill_out_current_address(CURRENT_ADDRESS) \
-                   .fill_out_permanent_address(PERMANENT_ADDRESS) \
-                   .click_submit_button() \
-                   .clear_name_input() \
-                   .clear_email_input() \
-                   .clear_current_address_input() \
-                   .clear_permanent_address_input() \
                    .click_submit_button() \
                    .get_processed_data() is None
+
+    @pytest.mark.toolsqa
+    def test_clear_form(self):
+        text_box_page = TextBoxPage(self.driver)
+
+        assert text_box_page \
+                   .open() \
+                   .fill_out_full_name(FULL_NAME) \
+                   .clear_full_name_input() \
+                   .get_full_name_input_text() == '', "Text in 'Full Name' input field can not be edited."
+
+        assert text_box_page \
+                   .open() \
+                   .fill_out_email(EMAIL) \
+                   .clear_email_input() \
+                   .get_email_input_text() == '', "Text in 'Email' input field can not be edited."
+
+        assert text_box_page \
+                   .open() \
+                   .fill_out_current_address(CURRENT_ADDRESS) \
+                   .clear_current_address_input() \
+                   .get_current_address_input_text() == '', "Text in 'Current Address' input field can not be edited."
+
+        assert text_box_page \
+                   .open() \
+                   .fill_out_permanent_address(PERMANENT_ADDRESS) \
+                   .clear_permanent_address_input() \
+                   .get_permanent_address_input_text() == '', "Text in 'Permanent Address' input field can not be edited."

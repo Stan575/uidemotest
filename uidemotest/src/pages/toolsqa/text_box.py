@@ -62,4 +62,3 @@ class TextBoxPage(TextBoxPageLocator):
 
     def get_processed_data(self):
         return self.su.get_text(self.SUBMITTED_DATA)
-
