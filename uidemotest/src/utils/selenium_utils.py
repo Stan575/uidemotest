@@ -31,7 +31,7 @@ class SeleniumUtils:
         """
         Get text from an element, no waiting
         :param mark: WebElement or locator as (locator_type, locator)
-        :return: text: str or None if element does not have any text
+        :return: text: str or None if there is no text and no attribute 'value'
         """
         if not isinstance(mark, WebElement):
             element = self.get_element(mark)
