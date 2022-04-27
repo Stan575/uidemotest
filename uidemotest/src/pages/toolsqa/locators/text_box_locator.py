@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 
 
 class TextBoxPageLocator:
-
     FULL_NAME_INPUT = (By.ID, 'userName')
     EMAIL_INPUT = (By.ID, 'userEmail')
     CURRENT_ADDRESS = (By.ID, 'currentAddress')

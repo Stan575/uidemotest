@@ -5,6 +5,9 @@ from uidemotest.src.pages.toolsqa.checkbox import CheckboxPage
 
 @pytest.mark.usefixtures('init_driver')
 class TestCheckbox:
+    """
+    Test suite for checkboxes
+    """
 
     @pytest.mark.toolsqa
     def test_home_checkbox(self):
@@ -35,4 +38,4 @@ class TestCheckbox:
             if string not in actual_message:
                 missing_strings.append(string)
 
-        assert  not missing_strings, f'Missing strings in result message: {missing_strings}'
+        assert not missing_strings, f'Missing strings in result message: {missing_strings}'
