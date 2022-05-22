@@ -13,7 +13,7 @@ COLOR = 'rgba(40, 167, 69, 1)'  # hex: #28a745 (dark green)
 @pytest.mark.usefixtures('init_driver')
 class TestRadioButton:
     """
-    Test suite for radio-buttons
+    Test suite for ToolsQA Elements :: radio-buttons page
     """
 
     @pytest.mark.toolsqa
@@ -48,7 +48,7 @@ class TestRadioButton:
 
         # verify no message
         actual_message = radio_button_page.get_message_text()
-        assert actual_message == '', f"Actual message: '{actual_message}', expected no message."
+        assert actual_message is None, f"Actual message: '{actual_message}', expected no message."
 
     @pytest.mark.toolsqa
     @pytest.mark.smoke
