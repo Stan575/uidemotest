@@ -1,6 +1,7 @@
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 
 
 class SeleniumUtils:
@@ -8,17 +9,33 @@ class SeleniumUtils:
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 5)
 
+    def is_element_visible(self, locator):
+        """
+        Returns True if a WebElement is present in DOM and visible at the moment of call (no waiting), or False
+        :param locator: (locator_type, locator)
+        :return: bool
+        """
+        element = self.get_element(locator)
+        if element:
+            return element.is_displayed()
+        else:
+            return False
+
     def get_element(self, locator):
         """
-        Lookup for an element without waiting
+        Lookup for an element without waiting, returns a WebElement if present in DOM, or None
+        Note: WebElement may not be visible or enabled
         :param locator: (locator_type, locator)
         :return: WebElement
         """
-        return self.driver.find_element(locator[0], locator[1])
+        try:
+            return self.driver.find_element(locator[0], locator[1])
+        except NoSuchElementException:
+            return None
 
     def wait_get_element(self, locator, timeout=None):
         """
-        Wait for an element to be visible (standard timeout)
+        Wait for a WebElement to be visible (using standard or custom waiting time), then return the WebElement
         :param locator: (locator_type, locator)
         :param timeout: custom timeout in sec
         :return: WebElement
@@ -29,7 +46,7 @@ class SeleniumUtils:
 
     def get_text(self, mark):
         """
-        Get text from an element, no waiting
+        Get text from an element, no waiting. If element cannot be found return None
         :param mark: WebElement or locator as (locator_type, locator)
         :return: text: str or None if there is no text and no attribute 'value'
         """
@@ -37,17 +54,19 @@ class SeleniumUtils:
             element = self.get_element(mark)
         else:
             element = mark
+        if element:
+            text_from_element = element.text
 
-        text_from_element = element.text
-
-        if text_from_element:
-            return text_from_element
+            if text_from_element:
+                return text_from_element
+            else:
+                return element.get_attribute('value')
         else:
-            return element.get_attribute('value')
+            return None
 
     def wait_and_input_text(self, mark, text, timeout=None):
         """
-        Wait for an element to be clickable (standard timeout), then click the element
+        Wait for an element to be clickable (using standard or custom waiting time), then click the element
         :param mark: WebElement or locator as (locator_type, locator)
         :param text: text as a string
         :param timeout: custom timeout in sec
@@ -64,7 +83,7 @@ class SeleniumUtils:
 
     def wait_and_click(self, mark, timeout=None):
         """
-        Waiting for an element to be clickable using standard waiting time, then click the element
+        Wait for an element to be clickable (using standard or custom waiting time), then click the element
         :param mark: WebElement or locator as (locator_type, locator)
         :param timeout: custom timeout in sec
         :return: None
