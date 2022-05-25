@@ -2,7 +2,7 @@
 Automation testing framework (UI) - an example. Based on Python, Selenium, Pytest
 
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Stan575/uidemotest/blob/master/LICENSE)
-[![Tests](https://img.shields.io/badge/tests-failing-red)]()
+[![Tests](https://github.com/Stan575/uidemotest/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Stan575/uidemotest/blob/main/.github/workflows/ci.yml)
 [![Code Quality](https://img.shields.io/badge/code%20quality-A-brightgreen)]()
 
 ## Requirements
