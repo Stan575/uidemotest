@@ -32,12 +32,12 @@ jobs:
       - name: Check Chrome version
         run: |
           google-chrome --version
+        env:
+          CICD_RUN: "yes"
 
       - name: Test with pytest and generate junit xml report
         run : |
           pytest uidemotest/test --junitxml report.xml
-        env:
-          CICD_RUN: "yes"
 
       - name: Create test summary
         uses: test-summary/action@v1.0
@@ -49,4 +49,4 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1.36
         if: always()
         with:
-          junit_files: "report.xml"
+          files: "report.xml"
