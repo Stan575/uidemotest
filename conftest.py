@@ -24,8 +24,6 @@ def init_driver(request):
         if 'CICD_RUN' in os.environ:
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-gpu')
-            chrome_options.add_argument('--disable-dev-shm-usage')
-            chrome_options.add_argument('--headless')
         elif 'headless' in browser:
             chrome_options.headless = True
         else:
