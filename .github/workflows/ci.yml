@@ -1,4 +1,4 @@
-name: CI
+name: Test Run
 
 on:
   push:
@@ -46,7 +46,7 @@ jobs:
         if: always()
 
       - name: Publish test results
-        uses: EnricoMi/publish-unit-test-result-action@v1
+        uses: EnricoMi/publish-unit-test-result-action@v1.36
         if: always()
         with:
-          files: "report.xml"
+          junit_files: "report.xml"
