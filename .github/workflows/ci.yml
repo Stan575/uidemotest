@@ -40,7 +40,7 @@ jobs:
           CICD_RUN: "yes"
 
       - name: Create test summary
-        uses: test-summary/actions@v1.0
+        uses: test-summary/action@v1.0
         with:
           paths: report.xml
         if: always()
