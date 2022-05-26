@@ -7,8 +7,8 @@ Automation testing framework (UI) - an example. Based on Python, Selenium, Pytes
 
 ## Requirements
 Python 3.10.\*/3.11.\*, Pytest 7.1.2, <br>
-Selenium 4.1.3 <br>
-WebDriverManager 3.5.4 <br>
+Selenium 4.1.5 <br>
+WebDriverManager 3.7.0 <br>
 
 ## Project structure
 ```text
@@ -45,4 +45,5 @@ WebDriverManager 3.5.4 <br>
 - [x] [Selenium](https://www.selenium.dev/documentation/)
 - [x] [Pytest](https://docs.pytest.org/en/7.1.x/contents.html)
 - [x] [Chrome](https://www.google.com/chrome/downloads/)
-- [x] [ChromeDriver](https://chromedriver.chromium.org/downloads) <br>
+- [x] [ChromeDriver](https://chromedriver.chromium.org/downloads)
+- [x] [Webdriver Manager for Python](https://pypi.org/project/webdriver-manager/) <br>
