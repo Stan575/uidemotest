@@ -6,7 +6,7 @@ Automation testing framework (UI) - an example. Based on Python, Selenium, Pytes
 [![Code Quality](https://img.shields.io/badge/code%20quality-A-brightgreen)]()
 
 ## Requirements
-Python 3.10.\*/3.11.\*, Pytest 7.1.1, <br>
+Python 3.10.\*/3.11.\*, Pytest 7.1.2, <br>
 Selenium 4.1.3 <br>
 WebDriverManager 3.5.4 <br>
 
@@ -34,11 +34,11 @@ WebDriverManager 3.5.4 <br>
 2) Move to virtual environment folder
 3) Activate virtual environment
 4) Move to `uidemotest` root folder
-5) Execute `python -m unittest -v`
+5) Execute `pytest -v -s`
 
 ## Technology stack and helpful info
 - [x] [Python](https://docs.python.org/3.10/)
 - [x] [Selenium](https://www.selenium.dev/documentation/)
-- [x] [unittest](https://docs.python.org/3.10/library/unittest.html)
+- [x] [Pytest](https://docs.pytest.org/en/7.1.x/contents.html)
 - [x] [Chrome](https://www.google.com/chrome/downloads/)
 - [x] [ChromeDriver](https://chromedriver.chromium.org/downloads) <br>
