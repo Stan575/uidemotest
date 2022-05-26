@@ -1,3 +1,4 @@
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -17,14 +18,19 @@ def init_driver(request):
                            f'\t\tSupported browsers are: {str(supported_browsers)[1:-1]}.')
 
     if 'ch' in browser:
-        options = webdriver.ChromeOptions()
-        options.add_argument('--window-size=1600,1080')
-        if 'headless' in browser:
-            options.headless = True
-        else:
-            options.headless = False
         service = Service(ChromeDriverManager().install())
-        driver = webdriver.Chrome(service=service, options=options)
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--window-size=1920,1080')
+        if 'CICD_RUN' in os.environ:
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-gpu')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            chrome_options.add_argument('--headless')
+        elif 'headless' in browser:
+            chrome_options.headless = True
+        else:
+            chrome_options.headless = False
+        driver = webdriver.Chrome(service=service, options=chrome_options)
     elif browser in ('firefox', 'ff'):
         driver = webdriver.Firefox()
 

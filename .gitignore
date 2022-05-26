@@ -9,3 +9,4 @@ venv
 .pytest_cache
 **/__pycache__
 *temp*.py
+report*.xml
