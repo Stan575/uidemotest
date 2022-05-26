@@ -35,7 +35,7 @@ jobs:
 
       - name: Test with pytest and generate junit xml report
         run : |
-          pytest --junitxml report.xml
+          pytest -v -s --junitxml report.xml
         env:
           CICD_RUN: "yes"
 
