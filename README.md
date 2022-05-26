@@ -34,7 +34,11 @@ WebDriverManager 3.5.4 <br>
 2) Move to virtual environment folder
 3) Activate virtual environment
 4) Move to `uidemotest` root folder
-5) Execute `pytest -v -s`
+5) Execute 
+    - all tests: `pytest -v -s`
+    - smoke test suite: `pytest -m smoke -v -s`
+    - smoke and regression test suites: `pytest -m "smoke or regression" -v -s`
+    - all tests except slow tests: `pytest -m "not slow" -v -s`
 
 ## Technology stack and helpful info
 - [x] [Python](https://docs.python.org/3.10/)
